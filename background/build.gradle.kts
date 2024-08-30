@@ -38,3 +38,8 @@ dependencies {
 tasks.withType<Test> {
   useJUnitPlatform()
 }
+
+tasks.wrapper {
+  version = "latest"
+  distributionType = Wrapper.DistributionType.ALL
+}
