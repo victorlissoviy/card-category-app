@@ -30,16 +30,23 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter-security")
   implementation("org.springframework.boot:spring-boot-starter-web")
   implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-  // https://mvnrepository.com/artifact/org.mapstruct/mapstruct
   implementation("org.mapstruct:mapstruct:$mapstructVersion")
+
   compileOnly("org.projectlombok:lombok")
+
   runtimeOnly("org.postgresql:postgresql")
-  // https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor
-  annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
+
   annotationProcessor("org.projectlombok:lombok")
+  annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
+
   testImplementation("org.springframework.boot:spring-boot-starter-test")
-  testImplementation("org.springframework.security:spring-security-test")
+  testImplementation("org.springframework.boot:spring-boot-starter-data-jpa")
+  testImplementation("org.mapstruct:mapstruct:$mapstructVersion")
+
   testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+  testRuntimeOnly("org.postgresql:postgresql")
+
+  testAnnotationProcessor("org.projectlombok:lombok")
   testAnnotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
 }
 
@@ -52,6 +59,7 @@ tasks.wrapper {
   distributionType = Wrapper.DistributionType.ALL
 }
 
+// Needs for show mapping information when start
 tasks.named<JavaCompile>("compileJava") {
   options.compilerArgs.addAll(
     listOf(
