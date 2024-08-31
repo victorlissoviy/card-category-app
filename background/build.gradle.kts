@@ -39,12 +39,10 @@ dependencies {
   annotationProcessor("org.projectlombok:lombok")
   annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
 
-  testImplementation("org.springframework.boot:spring-boot-starter-test")
-  testImplementation("org.springframework.boot:spring-boot-starter-data-jpa")
   testImplementation("org.mapstruct:mapstruct:$mapstructVersion")
+  testImplementation("org.springframework.boot:spring-boot-starter-test")
 
   testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-  testRuntimeOnly("org.postgresql:postgresql")
 
   testAnnotationProcessor("org.projectlombok:lombok")
   testAnnotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
