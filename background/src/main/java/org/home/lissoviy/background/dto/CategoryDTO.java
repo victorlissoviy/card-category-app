@@ -17,10 +17,18 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoryDTO {
-
+  /**
+   * Identify Category DTO.
+   */
   private Long id;
 
+  /**
+   * Name Category DTO.
+   */
   private String name;
 
+  /**
+   * Set cards DTO.
+   */
   private Set<CardDTO> cards;
 }

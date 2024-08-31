@@ -17,7 +17,18 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CardDTO {
+  /**
+   * Identify Card DTO.
+   */
   private Long id;
+
+  /**
+   * Name Card DTO.
+   */
   private String name;
+
+  /**
+   * List categories DTO.
+   */
   private List<CategoryDTO> categories;
 }
