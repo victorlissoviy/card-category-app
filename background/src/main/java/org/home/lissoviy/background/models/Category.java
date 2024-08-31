@@ -22,11 +22,20 @@ import java.util.Set;
 @AllArgsConstructor
 public class Category {
 
+  /**
+   * Id category.
+   */
   @Id
   private Long id;
 
+  /**
+   * Name category.
+   */
   private String name;
 
+  /**
+   * Set cards.
+   */
   @ManyToMany(mappedBy = "categories")
   private Set<Card> cards;
 }

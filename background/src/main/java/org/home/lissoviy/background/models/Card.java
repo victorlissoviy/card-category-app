@@ -25,12 +25,21 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Card {
+  /**
+   * Id card.
+   */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  /**
+   * Name card.
+   */
   private String name;
 
+  /**
+   * List categories.
+   */
   @ManyToMany
   @JoinTable(name = "card_category",
              joinColumns = @JoinColumn(name = "card_id"),
