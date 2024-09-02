@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * DTO card.
@@ -31,4 +32,21 @@ public class CardDTO {
    * List categories DTO.
    */
   private List<CategoryDTO> categories;
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    CardDTO cardDTO = (CardDTO) o;
+    return Objects.equals(name, cardDTO.name);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hashCode(name);
+  }
 }

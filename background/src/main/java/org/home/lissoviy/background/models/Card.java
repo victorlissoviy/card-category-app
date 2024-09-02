@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Just card.
@@ -45,4 +46,21 @@ public class Card {
              joinColumns = @JoinColumn(name = "card_id"),
              inverseJoinColumns = @JoinColumn(name = "category_id"))
   private List<Category> categories;
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Card card = (Card) o;
+    return Objects.equals(name, card.name);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hashCode(name);
+  }
 }
