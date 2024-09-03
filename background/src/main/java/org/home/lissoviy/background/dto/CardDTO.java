@@ -42,11 +42,12 @@ public class CardDTO {
       return false;
     }
     CardDTO cardDTO = (CardDTO) o;
-    return Objects.equals(name, cardDTO.name);
+    return Objects.equals(getName(), cardDTO.getName())
+        && Objects.equals(getCategories(), cardDTO.getCategories());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hashCode(name);
+    return Objects.hash(getName(), getCategories());
   }
 }

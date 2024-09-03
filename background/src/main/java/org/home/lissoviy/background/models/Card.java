@@ -56,11 +56,12 @@ public class Card {
       return false;
     }
     Card card = (Card) o;
-    return Objects.equals(name, card.name);
+    return Objects.equals(getName(), card.getName())
+        && Objects.equals(getCategories(), card.getCategories());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hashCode(name);
+    return Objects.hash(getName(), getCategories());
   }
 }

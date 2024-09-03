@@ -52,11 +52,12 @@ public class Category {
       return false;
     }
     Category category = (Category) o;
-    return Objects.equals(name, category.name);
+    return Objects.equals(getName(), category.getName())
+        && Objects.equals(getCards(), category.getCards());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hashCode(name);
+    return Objects.hash(getName(), getCards());
   }
 }
