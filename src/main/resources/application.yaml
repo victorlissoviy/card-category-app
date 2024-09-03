@@ -1,4 +1,4 @@
- spring:
+spring:
   application:
     name: "background-test"
 
@@ -11,6 +11,9 @@
   jpa:
     hibernate:
       ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: true
+
+app:
+  security:
+    username: ${USER}
+    password: ${PASS}
