@@ -8,6 +8,7 @@ group = "org.home.lissoviy"
 version = "0.0.1-SNAPSHOT"
 
 var mapstructVersion = "1.6.0"
+var collections4Version = "4.4"
 
 java {
   toolchain {
@@ -31,6 +32,7 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter-web")
   implementation("org.springframework.boot:spring-boot-starter-data-jpa")
   implementation("org.mapstruct:mapstruct:$mapstructVersion")
+  implementation("org.apache.commons:commons-collections4:$collections4Version")
 
   compileOnly("org.projectlombok:lombok")
 
