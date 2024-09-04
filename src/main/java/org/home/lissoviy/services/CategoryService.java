@@ -36,8 +36,9 @@ public interface CategoryService {
    * Update exist category, if id category not exist, nothing not happen.
    *
    * @param categoryDTO category for update.
+   * @return updated category.
    */
-  void update(CategoryDTO categoryDTO);
+  CategoryDTO update(CategoryDTO categoryDTO);
 
   /**
    * Delete exist category, if id category not exist, nothing not happen.

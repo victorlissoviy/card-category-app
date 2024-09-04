@@ -38,10 +38,12 @@ public class CategoryServiceSimple implements CategoryService {
   }
 
   @Override
-  public void update(CategoryDTO categoryDTO) {
+  public CategoryDTO update(CategoryDTO categoryDTO) {
     if (categoryRepository.existsById(categoryDTO.getId())) {
-      categoryRepository.save(CategoryMapper.INSTANCE.toModel(categoryDTO));
+      Category updatedCategory = categoryRepository.save(CategoryMapper.INSTANCE.toModel(categoryDTO));
+      return CategoryMapper.INSTANCE.toDTO(updatedCategory);
     }
+    return null;
   }
 
   @Override
