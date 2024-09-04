@@ -32,8 +32,9 @@ public class CategoryServiceSimple implements CategoryService {
   }
 
   @Override
-  public void save(CategoryDTO categoryDTO) {
-    categoryRepository.save(CategoryMapper.INSTANCE.toModel(categoryDTO));
+  public CategoryDTO save(CategoryDTO categoryDTO) {
+    Category savetCategory = categoryRepository.save(CategoryMapper.INSTANCE.toModel(categoryDTO));
+    return CategoryMapper.INSTANCE.toDTO(savetCategory);
   }
 
   @Override

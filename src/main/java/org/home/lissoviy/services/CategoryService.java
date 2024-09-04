@@ -28,8 +28,9 @@ public interface CategoryService {
    * Save category, if id saved category exist in database there will be replaced.
    *
    * @param categoryDTO category for save.
+   * @return saved category.
    */
-  void save(CategoryDTO categoryDTO);
+  CategoryDTO save(CategoryDTO categoryDTO);
 
   /**
    * Update exist category, if id category not exist, nothing not happen.

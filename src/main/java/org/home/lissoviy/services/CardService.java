@@ -28,8 +28,9 @@ public interface CardService {
    * Save card, if id saved card exist in database there will be replaced.
    *
    * @param cardDTO card for save.
+   * @return saved card.
    */
-  void save(CardDTO cardDTO);
+  CardDTO save(CardDTO cardDTO);
 
   /**
    * Update exist card, if id card not exist, nothing not happen.

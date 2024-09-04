@@ -32,8 +32,9 @@ public class CardServiceSimple implements CardService {
   }
 
   @Override
-  public void save(CardDTO cardDTO) {
-    cardRepository.save(CardMapper.INSTANCE.toModel(cardDTO));
+  public CardDTO save(CardDTO cardDTO) {
+    Card savedCard = cardRepository.save(CardMapper.INSTANCE.toModel(cardDTO));
+    return CardMapper.INSTANCE.toDTO(savedCard);
   }
 
   @Override
