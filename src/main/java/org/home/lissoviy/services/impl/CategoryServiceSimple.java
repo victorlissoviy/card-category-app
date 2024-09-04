@@ -50,6 +50,11 @@ public class CategoryServiceSimple implements CategoryService {
     return null;
   }
 
+  /**
+   * Delete category, if category exist in cards it will be deleted from cards.
+   *
+   * @param id id category for delete.
+   */
   @Transactional
   @Override
   public void delete(Long id) {
