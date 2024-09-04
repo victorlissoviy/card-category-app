@@ -1,4 +1,4 @@
-package org.home.lissoviy.security;
+package org.home.lissoviy.configs;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
