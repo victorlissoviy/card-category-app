@@ -24,7 +24,6 @@ public interface CategoryMapper {
    */
   @Mapping(source = "id", target = "id")
   @Mapping(source = "name", target = "name")
-  @Mapping(source = "cards", target = "cards")
   Category toModel(CategoryDTO categoryDTO);
 
   /**
@@ -35,6 +34,5 @@ public interface CategoryMapper {
    */
   @Mapping(source = "id", target = "id")
   @Mapping(source = "name", target = "name")
-  @Mapping(source = "cards", target = "cards")
   CategoryDTO toDTO(Category category);
 }

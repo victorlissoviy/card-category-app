@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * DTO Category.
@@ -28,10 +27,6 @@ public class CategoryDTO {
    */
   private String name;
 
-  /**
-   * Set cards DTO.
-   */
-  private Set<CardDTO> cards;
 
   @Override
   public boolean equals(Object o) {
@@ -42,12 +37,11 @@ public class CategoryDTO {
       return false;
     }
     CategoryDTO that = (CategoryDTO) o;
-    return Objects.equals(getName(), that.getName())
-        && Objects.equals(getCards(), that.getCards());
+    return Objects.equals(getName(), that.getName());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(getName(), getCards());
+    return Objects.hash(getName());
   }
 }
