@@ -1,10 +1,13 @@
 package org.home.lissoviy.services.impl;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.IterableUtils;
 import org.home.lissoviy.dto.CategoryDTO;
 import org.home.lissoviy.mappers.CategoryMapper;
+import org.home.lissoviy.models.Card;
 import org.home.lissoviy.models.Category;
+import org.home.lissoviy.repositories.CardRepository;
 import org.home.lissoviy.repositories.CategoryRepository;
 import org.home.lissoviy.services.CategoryService;
 import org.springframework.stereotype.Service;
@@ -16,6 +19,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CategoryServiceSimple implements CategoryService {
 
+  private final CardRepository cardRepository;
   private final CategoryRepository categoryRepository;
 
   @Override
@@ -46,8 +50,20 @@ public class CategoryServiceSimple implements CategoryService {
     return null;
   }
 
+  @Transactional
   @Override
   public void delete(Long id) {
-    categoryRepository.deleteById(id);
+    Optional<Category> categoryOptional = categoryRepository.findById(id);
+    if (categoryOptional.isPresent()) {
+
+      Category category = categoryOptional.get();
+      List<Card> cards = cardRepository.findAllByCategoriesContains(category);
+      for (Card card : cards) {
+        card.getCategories().remove(category);
+        cardRepository.save(card);
+      }
+
+      categoryRepository.deleteById(id);
+    }
   }
 }
