@@ -24,6 +24,7 @@ public interface CategoryMapper {
    */
   @Mapping(source = "id", target = "id")
   @Mapping(source = "name", target = "name")
+  @Mapping(target = "cards", ignore = true)
   Category toModel(CategoryDTO categoryDTO);
 
   /**
