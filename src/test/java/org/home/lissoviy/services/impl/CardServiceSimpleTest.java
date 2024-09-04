@@ -78,6 +78,7 @@ class CardServiceSimpleTest {
     verify(cardRepository, times(1)).existsById(cardId);
 
     when(cardRepository.existsById(cardId)).thenReturn(true);
+    when(cardRepository.findById(cardId)).thenReturn(Optional.of(card));
     cardService.update(cardDTO);
 
     verify(cardRepository, times(2)).existsById(cardId);

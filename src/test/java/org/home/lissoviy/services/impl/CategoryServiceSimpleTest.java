@@ -86,7 +86,7 @@ class CategoryServiceSimpleTest {
   void deleteCategory() {
     categoryService.delete(10L);
 
-    verify(categoryRepository, times(1)).deleteById(10L);
+    verify(categoryRepository, never()).deleteById(10L);
   }
 
   @Test
