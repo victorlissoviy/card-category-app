@@ -77,9 +77,11 @@ public class CardServiceSimple implements CardService {
       if (cardDTO.getCategories() == null) {
         Card findedCard = cardRepository.findById(cardDTOId).orElseThrow();
         List<Category> categories = findedCard.getCategories();
-        cardDTO.setCategories(categories.stream()
-            .map(CategoryMapper.INSTANCE::toDTO)
-            .toList());
+        if (categories != null) {
+          cardDTO.setCategories(categories.stream()
+              .map(CategoryMapper.INSTANCE::toDTO)
+              .toList());
+        }
       }
 
       Card updatedCard = cardRepository.save(CardMapper.INSTANCE.toModel(cardDTO));
