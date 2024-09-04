@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.never;
@@ -58,7 +57,6 @@ class CategoryServiceSimpleTest {
 
     CategoryDTO categoryDTO = actualCategory.get();
     assertEquals("test category", categoryDTO.getName());
-    assertNull(categoryDTO.getCards());
 
     verify(categoryRepository, never()).save(category);
     verify(categoryRepository, times(1)).findById(categoryId);

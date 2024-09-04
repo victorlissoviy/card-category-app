@@ -23,7 +23,7 @@ class CardMapperTest {
 
   @Test
   void testNull() {
-    Card    card    = cardMapper.toModel(null);
+    Card card = cardMapper.toModel(null);
     CardDTO cardDTO = cardMapper.toDTO(null);
 
     assertNull(card);
