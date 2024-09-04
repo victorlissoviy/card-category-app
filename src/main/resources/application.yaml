@@ -1,6 +1,6 @@
 spring:
   application:
-    name: "background-test"
+    name: "card-category"
 
   datasource:
     url: jdbc:postgresql://localhost:5432/card_category

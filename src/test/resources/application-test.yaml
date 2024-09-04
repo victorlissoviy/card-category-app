@@ -1,6 +1,6 @@
  spring:
   application:
-    name: "background"
+    name: "card-category-test"
 
   datasource:
     url: jdbc:postgresql://localhost:5432/card_category_test
@@ -11,7 +11,4 @@
   jpa:
     hibernate:
       ddl-auto: create-drop
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
