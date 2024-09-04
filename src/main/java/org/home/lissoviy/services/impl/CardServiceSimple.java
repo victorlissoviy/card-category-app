@@ -69,12 +69,23 @@ public class CardServiceSimple implements CardService {
   }
 
   @Override
-  public void update(CardDTO cardDTO) {
-    if (cardRepository.existsById(cardDTO.getId())) {
+  public CardDTO update(CardDTO cardDTO) {
+    Long cardDTOId = cardDTO.getId();
+    if (cardRepository.existsById(cardDTOId)) {
       updateCategories(cardDTO);
 
-      cardRepository.save(CardMapper.INSTANCE.toModel(cardDTO));
+      if (cardDTO.getCategories() == null) {
+        Card findedCard = cardRepository.findById(cardDTOId).orElseThrow();
+        List<Category> categories = findedCard.getCategories();
+        cardDTO.setCategories(categories.stream()
+            .map(CategoryMapper.INSTANCE::toDTO)
+            .toList());
+      }
+
+      Card updatedCard = cardRepository.save(CardMapper.INSTANCE.toModel(cardDTO));
+      return CardMapper.INSTANCE.toDTO(updatedCard);
     }
+    return null;
   }
 
   @Override

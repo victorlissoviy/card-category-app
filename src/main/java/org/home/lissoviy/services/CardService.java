@@ -36,8 +36,9 @@ public interface CardService {
    * Update exist card, if id card not exist, nothing not happen.
    *
    * @param cardDTO card for update.
+   * @return updated card.
    */
-  void update(CardDTO cardDTO);
+  CardDTO update(CardDTO cardDTO);
 
   /**
    * Delete exist card, if id card not exist, nothing not happen.
