@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "org.home.lissoviy"
-version = "0.0.1-SNAPSHOT"
+version = "1"
 
 var mapstructVersion = "1.6.0"
 var collections4Version = "4.4"
@@ -14,7 +14,6 @@ java {
   toolchain {
     languageVersion = JavaLanguageVersion.of(22)
   }
-
 }
 
 configurations {
