@@ -111,9 +111,9 @@ class CardServiceSimpleTest {
     CardDTO cardDTO2 = iterator.next();
 
     assertEquals("Card 1", cardDTO1.getName());
-    assertEquals(card1.getId(), cardDTO2.getId());
+    assertEquals(card1.getId(), cardDTO1.getId());
     assertEquals("Card 2", cardDTO2.getName());
-    assertEquals(card2.getId(), cardDTO1.getId());
+    assertEquals(card2.getId(), cardDTO2.getId());
 
     verify(cardRepository, times(1)).findAll();
     verify(cardRepository, never()).findById(any());

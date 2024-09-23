@@ -1,13 +1,11 @@
 # Update
 
 ## Done
+- [x] Fix delete tests
 
 ## Now
-
-- [ ] Fix delete tests
+- [ ] Change tests without Mocks
 
 ## In Future
-
-- [ ] Change tests without Mocks
-- [ ] Place the app on docker
+- [ ] add DDL
 - [ ] Place the app on kub
